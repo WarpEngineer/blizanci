@@ -25,7 +25,7 @@ ssl_opts() ->
      {verify, verify_peer},
      {cacertfile, "/dev/null"},
      {verify_fun, {VerifyFn, []}},
-     {versions, ['tlsv1.3']}
+     {versions, ['tlsv1.2', 'tlsv1.3']}
     ].
 
 proto_opts() ->
