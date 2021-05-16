@@ -1,11 +1,17 @@
 
+.PHONY: release compile shell clean prod
+
+Erl := $(shell erl -s init stop 2>/dev/null)
+iserlangactive:
+	$(if ${Erl}, $(info Erlang...check), $(error Erlang is not active.))
+
 release:
 	rebar3 release
 
 compile:
 	rebar3 compile
 
-shell:
+shell: iserlangactive
 	rebar3 shell
 
 clean:
